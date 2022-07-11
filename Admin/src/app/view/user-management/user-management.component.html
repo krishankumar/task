@@ -1,0 +1,99 @@
+<div class="row">
+  <div class="col-md-12">
+    <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+    <h3 class="page-title"> {{title}} </h3>
+    <ul class="page-breadcrumb breadcrumb">
+
+      <li> <i class="fa fa-home"></i> <a href=""> Home </a> <i class="fa fa-angle-right"></i>
+      </li>
+      <li> <a href="javascript:void(0);"> {{title}} </a> </li>
+    </ul>
+    <!-- END PAGE TITLE & BREADCRUMB-->
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <div class="tabbable tabbable-custom tabbable-full-width">
+      <ul class="nav nav-tabs">
+        <li class="active"> <a> User Management </a>
+        </li>
+      </ul>
+      <div class="tab-content">
+        <div id="tab_1_5">
+          <div class="row search-form-default">
+            <div class="col-md-4">
+              <form class="form-inline" action="#" id="search">
+                <div class="input-group">
+                  <div class="input-cont">
+                    <input type="text" placeholder="Search by name" class="form-control" [(ngModel)]="search"
+                      name="search" value="">
+                  </div>
+                  <span class="input-group-btn">
+                    <button type="button" class="btn green" (click)="getData()">
+                      Search &nbsp; <i class="m-icon-swapright m-icon-white"></i>
+                    </button>
+                  </span>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="table-responsive">
+            <table class="table table-striped table-bordered table-advance table-hover">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th> Name</th>
+                  <th> Email</th>
+                  <th> Mobile Number</th>
+                  <th> Posted</th>
+                  <th> Status </th>
+                  <th> Action </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr
+                  *ngFor="let data of responseData | paginate: { itemsPerPage: itemsPerPage, currentPage: p, totalItems: totalRecords }; let i = index ">
+                  <td>{{skip+i+1}} </td>
+                  <td>{{data.fullName}}</td>
+                  <td>{{data.email}}</td>
+                  <td>+{{data.countryCode}}{{data.mobileNumber}}</td>
+                  <td>{{data.createdAt*1000 | date:'fullDate'}}</td>
+                  <td>
+
+                    <span
+                      [ngClass]="(data.isBlocked==false)?'badge badge-success':'badge badge-dark'">{{data.isBlocked == false ? 'Active':'Inactive'}}</span>
+
+                  </td>
+                  <td>
+                    <a [routerLink]="['/main/user_management/user_detail/',data._id]" title="View User"> <i class="fa fa-eye fonta"></i>
+                    </a>
+                    <a (click)="deleteUser(data._id)" title="Delete User"><i class="fa fa-trash-o fonta"></i></a>
+                    <span class="label label-sm"> <a (click)="activeInactiveUser(data._id,!data.isBlocked)"
+                        [title]="data.isBlocked==false ? 'Inactive User':'Active User'"><i
+                          [ngClass]="(data.isBlocked==false)?'fa fa-times fonta':'fa fa-check fonta'"
+                          aria-hidden="true"></i></a>
+                    </span>
+                    <!-- class="fa fa-check fonta"  -->
+                    <!-- <a><i class="fa fa-edit fonta"></i></a></td> -->
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+          <p *ngIf="totalRecords==0">No results Found</p>
+          <div class="margin-top-20">
+            <ul class="pagination">
+              <pagination-controls (pageChange)="pageChanged(p = $event)" *ngIf="totalRecords > itemsPerPage"
+                screenReaderPaginationLabel="Pagination" screenReaderPageLabel="page"
+                screenReaderCurrentLabel="You're on page"></pagination-controls>
+
+            </ul>
+          </div>
+        </div>
+        <!--end tab-pane-->
+      </div>
+    </div>
+  </div>
+  <!--end tabbable-->
+
+</div>

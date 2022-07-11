@@ -1,0 +1,91 @@
+<!-- BEGIN LOGO -->
+<div class="logo">
+  <!-- <a>
+    <img src="assets/LOGO" alt="">
+  </a> -->
+</div>
+<!-- END LOGO -->
+<!-- BEGIN LOGIN -->
+<div class="content">
+
+  <!-- BEGIN LOGIN FORM -->
+  <form class="login-form" [formGroup]="loginForm" (ngSubmit)="login()">
+    <img src="../../../assets/Logo.png" class="center" heigth="150px" width="170px"> 
+    <h3 class="form-title">Login to your account</h3>
+    <div class="alert alert-danger display-hide">
+      <button class="close" data-close="alert"></button>
+      <span>
+        Enter any username and password.
+      </span>
+    </div>
+    <div class="form-group">
+      <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+      <label class="control-label visible-ie8 visible-ie9">Email</label>
+      <div class="input-icon"
+        [ngClass]="{ 'has-error': submitted && f.email.errors,'has-success': submitted && !f.email.errors}">
+        <i class="fa fa-envelope"></i>
+        <input class="form-control placeholder-no-fix" type="text" autocomplete="on" placeholder="Email" name="email"
+          formControlName="email">
+      </div>
+      <div *ngIf="submitted && f.email.errors" class="text-danger">
+        <div *ngIf="f.email.errors.required">Email is required</div>
+        <div *ngIf="f.email.errors.pattern"> Enter a valid email address</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label visible-ie8 visible-ie9">Password</label>
+      <div class="input-icon"
+        [ngClass]="{ 'has-error': submitted && f.password.errors, 'has-success': submitted && !f.password.errors}">
+        <i class="fa fa-lock"></i>
+        <input class="form-control placeholder-no-fix" type="password" autocomplete="on" placeholder="Password"
+          name="password" formControlName="password">
+      </div>
+
+      <div *ngIf="submitted && f.password.errors" class="text-danger">
+        <div *ngIf="f.password.errors.required">Password is required</div>
+        <div *ngIf="f.password.errors.minlength">Password must be at least 4
+          characters</div>
+      </div>
+    </div>
+    <div class="form-actions">
+      <!-- <label class="checkbox"> <input type="checkbox" name="remember" value="1"> Remember me </label> -->
+      <button type="submit" class="btn green pull-right">
+        Login <i class="m-icon-swapright m-icon-white"></i>
+      </button>
+    </div>
+    <div class="forget-password">
+      <h4>Forgot your password ?</h4>
+      <p>
+        no worries, click
+        <a href="javascript:;" routerLink="/forgot-password">
+          here
+        </a>
+        to reset your password.
+      </p>
+    </div>
+
+  </form>
+  <!-- END LOGIN FORM -->
+</div>
+<!-- END LOGIN -->
+<!-- BEGIN COPYRIGHT -->
+-
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $("#forget-password").click(function () {
+        $(".forget-form").show();
+        $(".login-form").hide();
+      });
+      $("#back-btn, #register-back-btn").click(function () {
+        $(".login-form ").show();
+        $(".forget-form, .register-form").hide();
+      });
+      $("#register-btn").click(function () {
+        $(".register-form").show();
+        $(".login-form").hide();
+      });
+    });
+  </script>  
+<!-- END JAVASCRIPTS -->
+
+<!-- END BODY -->

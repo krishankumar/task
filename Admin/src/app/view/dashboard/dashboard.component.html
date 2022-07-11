@@ -1,0 +1,129 @@
+<div class="row">
+    <div class="col-md-12">
+        <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+        <h3 class="page-title"> {{title}} </h3>
+        <ul class="page-breadcrumb breadcrumb">
+            <li> <i class="fa fa-home"></i>
+                <a href="#"> Home </a> <i class="fa fa-angle-right"></i>
+            </li>
+            <li> <a href="javascript:void(0);"> {{title}} </a> </li>
+        </ul>
+        <!-- END PAGE TITLE & BREADCRUMB-->
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="dashboard-stat blue">
+                    <div class="visual">
+                        <i class="fa fa-user"></i>
+                    </div>
+                    <div class="details">
+                        <div class="number">
+                            {{responseData.userCount}}
+                        </div>
+                        <div class="desc">
+                            User
+                        </div>
+                    </div>
+                    <a class="more" routerLink="/main/user_management">
+                        View more <i class="m-icon-swapright m-icon-white"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="dashboard-stat green">
+                    <div class="visual">
+                        <i class="fa fa-list-ul"></i>
+                    </div>
+                    <div class="details">
+                        <div class="number">
+                            {{responseData.hotelCount}}
+                        </div>
+                        <div class="desc">
+                            Hotel
+                        </div>
+                    </div>
+                    <a class="more" routerLink="/main/hotel_management">
+                        View more <i class="m-icon-swapright m-icon-white"></i>
+                    </a>
+                </div>
+            </div>
+           <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="dashboard-stat purple">
+                    <div class="visual">
+                        <i class="fa fa-list-ul"></i>
+                    </div>
+                    <div class="details">
+                        <div class="number">
+                            {{responseData.bookingPending}}
+                        </div>
+                        <div class="desc">
+                            Pending Booking
+                        </div>
+                    </div>
+                    <a class="more" routerLink="/main/booking_management">
+                        View more <i class="m-icon-swapright m-icon-white"></i>
+                    </a>
+                </div>
+            </div>
+             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="dashboard-stat yellow">
+                    <div class="visual">
+                        <i class="fa fa-list-ul"></i>
+                    </div>
+                    <div class="details">
+                        <div class="number">
+                            {{responseData.bookingConfirmed}}
+                        </div>
+                        <div class="desc">
+                            Confirmed Booking
+                        </div>
+                    </div>
+                    <a class="more" routerLink="/main/booking_management">
+                        View more <i class="m-icon-swapright m-icon-white"></i>
+                    </a>
+                </div>
+            </div>
+            <!-- <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="dashboard-stat yellow">
+                    <div class="visual">
+                        <i class="fa fa-list-ul"></i>
+                    </div>
+                    <div class="details">
+                        <div class="number">
+                            {{responseData.badges}}
+                        </div>
+                        <div class="desc">
+                            Badges
+                        </div>
+                    </div>
+                    <a class="more"  routerLink="/main/badge_management">
+                        View more <i class="m-icon-swapright m-icon-white"></i>
+                    </a>
+                </div>
+            </div> 
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="dashboard-stat green">
+                    <div class="visual">
+                        <i class="fa fa-list-ul"></i>
+                    </div>
+                    <div class="details">
+                        <div class="number">
+                            {{responseData.reportedPosts}}
+                        </div>
+                        <div class="desc">
+                            Reported Lessons
+                        </div>
+                    </div>
+                    <a class="more" routerLink="/main/reported_post">
+                        View more <i class="m-icon-swapright m-icon-white"></i>
+                    </a>
+                </div>
+            </div>-->
+        </div>
+
+    </div>
+    <!--end tabbable-->
+</div>

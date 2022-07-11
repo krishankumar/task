@@ -1,0 +1,81 @@
+<div class="row">
+  <div class="col-md-12">
+    <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+    <h3 class="page-title"> {{title}} </h3>
+    <ul class="page-breadcrumb breadcrumb">
+      <li class="btn-group" routerLink="/main/user_management"> <a class="btn green dropdown-toggle "> <i
+        class="fa fa-backward" aria-hidden="true"></i> <span> Back
+      </span></a> </li>
+      <li> <i class="fa fa-home"></i> <a> Home </a> <i class="fa fa-angle-right"></i>
+      </li>
+      <li> <a href="javascript:void(0);"> {{title}} </a> </li>
+    </ul>
+    <!-- END PAGE TITLE & BREADCRUMB-->
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <form>
+      <div class="form-group row">
+        <label for="staticEmail" class="col-sm-2 col-form-label">Profile Pic</label>
+        <div class="col-md-9">
+          <img class="imgDisp" width="200" height="200"
+            src="{{responseData.profilePic == undefined || responseData.profilePic == ''? IMAGE_BASE_URL+'/images/default_user.png': IMAGE_BASE_URL+'/images/' +responseData.profilePic}}">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="staticEmail" class="col-sm-2 col-form-label">Login Type</label>
+        <div class="col-sm-10">
+          <!-- <input type="text" readonly class="form-control"  [value]="responseData.fullName">
+               -->
+          <span
+            [ngClass]="(responseData.socialId==undefined)?'badge badge-info':'badge badge-dark'">{{responseData.socialId == undefined ? 'Manual':'Social login'}}</span>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="staticEmail" class="col-sm-2 col-form-label">Name</label>
+        <div class="col-sm-10">
+          <input type="text" readonly class="form-control" [value]="responseData.fullName">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+        <div class="col-sm-10">
+          <input type="text" readonly class="form-control" [value]="responseData.email">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="staticEmail" class="col-sm-2 col-form-label">Mobile Number</label>
+        <div class="col-sm-10">
+          <input type="text" readonly class="form-control" [value]="responseData.mobileNumber">
+        </div>
+      </div>
+      <!-- <div class="form-group row">
+        <label for="staticEmail" class="col-sm-2 col-form-label">City , State, Country </label>
+        <div class="col-sm-10">
+          <input type="text" readonly class="form-control" [value]="responseData.city">
+        </div>
+      </div> -->
+      <div class="form-group row">
+        <label for="staticEmail" class="col-sm-2 col-form-label">Address</label>
+        <div class="col-sm-10">
+          <input type="text" readonly class="form-control" [value]="responseData.address_name">
+        </div>
+      </div>
+      <!-- <div class="form-group row">
+        <label for="staticEmail" class="col-sm-2 col-form-label">Device Model</label>
+        <div class="col-sm-10">
+          <input type="text" readonly class="form-control" [value]="responseData.deviceModal">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="staticEmail" class="col-sm-2 col-form-label">App Version</label>
+        <div class="col-sm-10">
+          <input type="text" readonly class="form-control" [value]="responseData.appVersion">
+        </div>
+      </div> -->
+    </form>
+  </div>
+  <!--end tabbable-->
+
+</div>
